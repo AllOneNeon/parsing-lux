@@ -14,6 +14,7 @@ def get_sql():
     for row in cursor.fetchall(): 
         #print ('{}'.format(row[0]))
         print("%s\n" % str(row)) 
+        
 get_sql()
 conn.close()
 
