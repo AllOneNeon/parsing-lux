@@ -1,15 +1,12 @@
 import pymssql 
-import argparse
-import sqlite3
-import pandas as pd
 
 conn = pymssql.connect(server='103.24.99.76', 
                         user='testUser', 
                         password='Abcd.1234', 
                         database='Portal_Data')
+cursor = conn.cursor()
 
 def get_sql():
-    cursor = conn.cursor()
     cursor.execute("""SELECT *
                 FROM sys.databases 
                 WHERE name='Portal_Data' 
@@ -17,7 +14,8 @@ def get_sql():
     for row in cursor.fetchall(): 
         #print ('{}'.format(row[0]))
         print("%s\n" % str(row)) 
-raww = get_sql()
+
+get_sql()
 conn.close()
 
 #cursor = conn.cursor()
